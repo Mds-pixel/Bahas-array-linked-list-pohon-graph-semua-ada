@@ -3,7 +3,6 @@ from collections import deque
 
 import numpy as num
 
-
 import os
 
 from pip._vendor.distlib.compat import raw_input
@@ -20,6 +19,7 @@ def judul():
     print('{:>111}'.format('| 3 | Stack & Queque                      /| '))
     print('{:>111}'.format('| 4 | POhon Biner                         \| '))
     print('{:>111}'.format('| 5 | Graph                               /| '))
+    print('{:>111}'.format('| 6 | Keluar                              /| '))
     print('{:>110}'.format('|___|______________________________________|'))
 
 def salah():
@@ -38,9 +38,6 @@ def array3d():
     print("                                                                             [  [1, 2, 3, ] [4, 5, 6] ] ")
     print("                                                                             [ [7, 8, 9], [10, 11, 12] ] ")
 
-
-
-
 def linklis():
     print('{:>100}'.format('-----------------------------------'))
     print('{:>86}'.format('1.Tambah '))
@@ -54,8 +51,10 @@ def array():
     print("\n")
     print('{:>100}'.format('-----------------------'))
     print('{:>94}'.format(' 1 > Dimensi 1'))
-    print('{:>95}'.format(' 2 > Dimensi 2 '))
-    print('{:>95}'.format('3 > Dimensi 3 '))
+    print('{:>97}'.format(' 2 > Dimensi 1 v2'))
+    print('{:>95}'.format(' 3 > Dimensi 2 '))
+    print('{:>97}'.format(' 4 > Dimensi 2 v2'))
+    print('{:>95}'.format(' 5 > Dimensi 3 '))
     print('{:>100}'.format('-----------------------'))
 
 
@@ -126,7 +125,7 @@ graph3 = {'A': ['B', 'C'],
 
 #run program
 i = 'y'
-while (i == 'y'):
+while (i == 'y') or (i == 'Y'):
     judul()
     pilih = int(input('{:>95}'.format('Masukan Pilihan Kamu :')))
     os.system('cls')
@@ -161,7 +160,7 @@ while (i == 'y'):
 
 
 
-                    if (ulang == 't'):
+                    if (ulang == 't') or (ulang == 'T'):
                         stop = True
                         print("\n")
                         print("\n")
@@ -173,6 +172,62 @@ while (i == 'y'):
                             print("                                                     - {}".format(ikn))
 
         elif pilih == 2:
+            nama = []
+            stop = False
+            i = 'y'
+            u = 0
+
+            while (not stop):
+                nama_orang = input('No.{} Inputkan Nama-nama Wanita Yang Membuat Saya Tersakiti : '.format(u + 1))
+                nama.append(nama_orang)
+                u += 1
+                nanya = input('Apakah Ada Lagi Selain Dia? (y/t) : ')
+                os.system('cls')
+                if (nanya == 't') or (nanya == 'T'):
+                    stop = True
+
+                print('+' * 50)
+                print('Anda Memiliki {} Wanita Yang Sudah Membuat Anda Tersakiti'.format(len(nama)))
+                for no in nama:
+                    print('-{}'.format(no))
+
+        elif pilih == 3:
+            Nilai_mahasiswa = []
+
+            stop = False
+
+
+            i = 'y'
+            u = 0
+
+            while (not stop):
+                jumlah = int(input('Berapa kali data nilai akan di input? Data ke-{}: '.format(i)))
+                a = 0
+                tampung = []
+                for a in range(jumlah):
+                    Nilai_baru = int(input('Input hasil Nilai ke-{} '.format(a+1)))
+                    tampung.append(Nilai_baru)
+                Nilai_mahasiswa.insert(0, tampung)
+                u += 1
+
+                tanya = input('Mau isi data mahasiswa selanjutnya? (y/t): ')
+                if (tanya == 't'):
+                    stop = True
+
+
+
+                    print('+' * 50)
+                    print('Cetak hasil input dalam data mahasiswa', Nilai_mahasiswa)
+                    print('+' * 50)
+                    print('Hasil array 2 dimensi dalam bentuk Tabel')
+                    for x in Nilai_mahasiswa:
+                        for b in x:
+
+                            print(b, end=' ')
+                            print()
+
+
+        elif pilih == 4:
             print("\n")
             print("\n")
             print('{:>100}'.format('Latihan Array 2D'))
@@ -237,7 +292,7 @@ while (i == 'y'):
                     print(                                                              gamepc[2][3])
 
 
-        elif pilih == 3:
+        elif pilih == 5:
             print("\n")
             print("\n")
             print('{:>100}'.format('Latihan Array 3D'))
@@ -296,7 +351,7 @@ while (i == 'y'):
                     if (kol == '2'):
                         print("                                                             Data yang Kamu Cari :")
                         print(angka[1][0][1])
-                    if (kol == '1'):
+                    if (kol == '3'):
                         print("                                                             Data yang Kamu Cari :")
                         print(angka[1][0][2])
                 if (bar == '2'):
@@ -382,7 +437,7 @@ while (i == 'y'):
             linklis()
             pilih = raw_input("                                         Kamu pilih Yang mana : ")
             if (pilih == "1"):                                                  #untuk menambah data
-                ms = str(input("                                            Masukan angka {}: ".format(u+1)))
+                ms = str(input("                                            Masukan angka ke {}: ".format(u+1)))
                 u += 1
                 os.system('cls')
 
@@ -593,6 +648,10 @@ while (i == 'y'):
         print(z.getVertex())
         print("================== Edge ===================")
         print(z.getEdge())
+
+    elif (pilih == 6):
+        exit()
+
 
     else:
         salah()
